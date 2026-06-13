@@ -126,7 +126,7 @@ function DiagnosticApp() {
     },
     {
       q: "Combien de temps faut-il pour le remplir ?",
-      a: "Il faut compter environ 10 minutes. L'écran de profil prend 2 minutes, et les questions des 5 piliers se remplissent très rapidement grâce à nos choix de réponses simplifiés (Oui / Partiellement / Non)."
+      a: "Il faut compter environ 3 à 5 minutes. L'écran de profil prend 1 minute, et les questions des 6 piliers se remplissent très rapidement grâce à nos choix de réponses simplifiés."
     },
     {
       q: "De quels documents ai-je besoin pour répondre aux questions ?",
@@ -199,7 +199,7 @@ function DiagnosticApp() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 text-slate-500 text-xs font-semibold border-t border-slate-200">
               <div className="flex items-center justify-center lg:justify-start gap-2">
                 <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
-                10 minutes chrono
+                3 à 5 minutes chrono
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-2">
                 <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
@@ -295,7 +295,7 @@ function DiagnosticApp() {
               </div>
               <h3 className="text-lg font-bold text-slate-900">Profil Entreprise</h3>
               <p className="text-sm text-slate-655 text-slate-500 font-light leading-relaxed">
-                Renseignez en 2 minutes la fiche d'identité de votre PME (chiffre d'affaires, secteur, forme juridique, salariés) afin de calibrer nos ratios et seuils légaux.
+                Renseignez en 1 minute la fiche d'identité de votre PME (chiffre d'affaires, secteur, forme juridique, salariés) afin de calibrer nos ratios et seuils légaux.
               </p>
             </div>
             
@@ -305,7 +305,7 @@ function DiagnosticApp() {
               </div>
               <h3 className="text-lg font-bold text-slate-900">Évaluation des 5 Piliers</h3>
               <p className="text-sm text-slate-500 font-light leading-relaxed">
-                Répondez à nos 8 questions clés par section. Notre format hybride combine questions à choix simple et données chiffrées stratégiques (retards de TVA, trésorerie disponible, DSO).
+                Répondez à nos 3 questions clés par section. Notre format hybride combine questions à choix simple et données chiffrées stratégiques (retards de TVA, trésorerie disponible, DSO).
               </p>
             </div>
 
@@ -641,7 +641,7 @@ function DiagnosticApp() {
             Prêt à sécuriser et optimiser la gestion de votre PME ?
           </h2>
           <p className="text-teal-100 text-sm md:text-base max-w-2xl font-light leading-relaxed">
-            Prenez 10 minutes aujourd'hui pour faire le point sur votre gestion financière, sociale et fiscale, et obtenez des solutions concrètes gratuites.
+            Prenez 3 à 5 minutes aujourd'hui pour faire le point sur votre gestion financière, sociale et fiscale, et obtenez des solutions concrètes gratuites.
           </p>
           <div className="pt-2">
             <button 

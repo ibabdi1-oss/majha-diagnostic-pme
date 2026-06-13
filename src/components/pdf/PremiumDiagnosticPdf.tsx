@@ -4,6 +4,58 @@ import React from "react";
 import { getActionPriority } from "../../context/DiagnosticContext";
 import { PILLARS } from "../../data/questions";
 
+const ValidationStamp = () => (
+  <div style={{ width: "90px", height: "90px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <svg width="90" height="90" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#0d9488" strokeWidth="1.5" strokeDasharray="3,3" />
+      <circle cx="50" cy="50" r="41" fill="none" stroke="#0d9488" strokeWidth="0.8" />
+      <circle cx="50" cy="50" r="37" fill="none" stroke="#0d9488" strokeWidth="0.8" />
+      <path id="curve" d="M 18 50 A 32 32 0 1 1 82 50" fill="none" stroke="transparent" />
+      <text fill="#0d9488" fontSize="6.2" fontWeight="bold" letterSpacing="0.6">
+        <textPath href="#curve" startOffset="50%" textAnchor="middle">
+          ★ MAJHA AUDIT &amp; CONFORMITÉ ★
+        </textPath>
+      </text>
+      <path id="curveBottom" d="M 82 50 A 32 32 0 0 1 18 50" fill="none" stroke="transparent" />
+      <text fill="#0d9488" fontSize="6.2" fontWeight="bold" letterSpacing="0.6">
+        <textPath href="#curveBottom" startOffset="50%" textAnchor="middle">
+          CONTRÔLE RÉGLEMENTAIRE
+        </textPath>
+      </text>
+      <rect x="23" y="42" width="54" height="16" rx="2" fill="#0d9488" />
+      <text x="50" y="53" fill="#ffffff" fontSize="9" fontWeight="900" textAnchor="middle" letterSpacing="0.5">
+        VALIDÉ
+      </text>
+    </svg>
+  </div>
+);
+
+const HandwrittenSignature = () => (
+  <div style={{ width: "130px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M 10 35 Q 25 10 35 30 T 50 15 T 70 35 T 85 20 T 110 25"
+        fill="none"
+        stroke="#1e3a8a"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M 20 28 Q 50 38 95 32"
+        fill="none"
+        stroke="#1e3a8a"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <span style={{ fontSize: "8px", color: "#64748b", fontWeight: "bold", textTransform: "uppercase", letterSpacing: "0.5px", marginTop: "2px" }}>
+      J. Martin — Associé MAJHA
+    </span>
+  </div>
+);
+
 interface PremiumDiagnosticPdfProps {
   data: any; // payload from getPDFData() plus answers
   id?: string;
@@ -82,9 +134,9 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         "Obtention d'un tableau de bord de gestion mensuel fiable pour anticiper vos décisions stratégiques."
       );
     }
-    if (answers["q1.5"] === "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)") {
+    if (answers["q1.4"] === "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)") {
       addVuln(
-        "q1.5",
+        "q1.4",
         "Non-conformité du FEC",
         0,
         "Incapacité à présenter le Fichier des Écritures Comptables lors d'une vérification.",
@@ -100,25 +152,25 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         "Retards de déclarations de TVA",
         1,
         "Décalages répétés de transmission du formulaire CA3 à l'administration fiscale.",
-        "Application d'une majoration forfaitaire automatique de 10% des sommes dues et intérêts de retard mensuels.",
+        "Application d'une majoration forfaitaire automatique de 10% à 40% des sommes dues, intérêts de retard mensuels et risque de contrôle fiscal étendu.",
         "Préservation de votre trésorerie opérationnelle et maintien de relations de confiance avec la DGFIP."
       );
     }
-    if (answers["q2.5"] === "Non, nous n'avons aucun document de ce type (point de vigilance TVA)") {
+    if (answers["q2.2"] === "Non, nous n'avons aucun document de ce type (point de vigilance TVA)") {
       addVuln(
-        "q2.5",
+        "q2.2",
         "Absence de Piste d'Audit Fiable (PAF)",
         1,
         "Défaut de formalisation écrite des contrôles internes justifiant la validité de vos factures.",
-        "Risque de contestation de la déduction de TVA sur vos factures fournisseurs.",
+        "Risque de rejet de déductibilité de la TVA sur l'ensemble de vos factures d'achat (redressement fiscal) et pénalités de 10% à 40% (Article 289 du CGI).",
         "Sécurisation du droit à déduction de votre TVA et conformité stricte aux exigences de l'administration."
       );
     }
 
     // Trésorerie
-    if (Number(answers["q3.4"] || 0) > 60) {
+    if (Number(answers["q3.3"] || 0) > 60) {
       addVuln(
-        "q3.4",
+        "q3.3",
         "Délai de paiement clients excessif (DSO)",
         2,
         "Blocage d'une part importante de votre chiffre d'affaires sous forme de créances clients non recouvrées.",
@@ -138,9 +190,9 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
     }
 
     // Ressources Humaines
-    if (answers["q4.3"] === "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)") {
+    if (answers["q4.2"] === "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)") {
       addVuln(
-        "q4.3",
+        "q4.2",
         "Défaut de mutuelle ANI obligatoire",
         3,
         "Non-respect de l'obligation de proposer une complémentaire santé collective financée à 50% minimum.",
@@ -148,13 +200,23 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         "Mise en conformité réglementaire immédiate et amélioration de la marque employeur pour fidéliser vos talents."
       );
     }
-    if (answers["q4.7"] === "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)") {
+    if (answers["q4.3"] === "Plus de 11 salariés et aucune élection organisée (conformité CSE à sécuriser)") {
       addVuln(
-        "q4.7",
+        "q4.3",
+        "Absence d'élections du CSE",
+        3,
+        "Entreprise de plus de 11 salariés sans Comité Social et Économique obligatoire (seuil dépassé depuis 12 mois).",
+        "Délit d’entrave passible d’un an d’emprisonnement et 7 500 € d’amende pour le dirigeant.",
+        "Mise en place des élections du CSE ou rédaction d'un procès-verbal de carence conforme."
+      );
+    }
+    if (answers["q4.4"] === "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)") {
+      addVuln(
+        "q4.4",
         "Absence de DUERP rédigé",
         3,
-        "Absence de recensement écrit des risques professionnels pour la sécurité des travailleurs.",
-        "Risque pour la sécurité des équipes et absence de couverture légale pour la responsabilité de la direction.",
+        "Absence de recensement écrit des risques professionnels pour la santé/sécurité des travailleurs.",
+        "Risque d’amende pénale jusqu’à 3 750 € et de responsabilité civile/pénale personnelle du dirigeant en cas d’accident.",
         "Sécurisation de la responsabilité de la direction et structuration d'un plan de prévention des risques au travail."
       );
     }
@@ -180,44 +242,14 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         "Zéro pénalité de retard, déclarations conformes dès la première transmission et sérénité administrative."
       );
     }
-    if (answers["q6.3"] === "Aucune veille formalisée, nous appliquons des règles historiques sans mise à jour des grilles de salaire") {
-      addVuln(
-        "q6.3",
-        "Absence de veille conventionnelle",
-        4,
-        "Défaut d'application des grilles de salaire et des avenants de votre Convention Collective Nationale.",
-        "Risque de contentieux prud'homal individuel ou collectif pour non-respect des minima salariaux conventionnels.",
-        "Ajustement automatique des salaires aux minima conventionnels et conformité sociale totale."
-      );
-    }
-    if (answers["q6.4"] === "Suivi informel sur des calendriers papier ou par emails (risque d'erreurs ou de contestation)") {
+    if (answers["q6.4"] === "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)") {
       addVuln(
         "q6.4",
-        "Gestion des absences imprécise",
-        4,
-        "Suivi des congés payés, RTT et arrêts maladies géré manuellement ou de façon éparpillée.",
-        "Erreurs de calcul du solde lors des départs de salariés, contestations prud'homales et désorganisation interne.",
-        "Suivi transparent en temps réel via un espace collaborateur et planification opérationnelle simplifiée."
-      );
-    }
-    if (answers["q6.6"] === "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)") {
-      addVuln(
-        "q6.6",
         "Risque URSSAF",
         4,
         "Absence d'audit social préventif ou contrôle récent ayant relevé des anomalies.",
         "Risque élevé de redressement financier sur les cotisations sociales lors du prochain contrôle URSSAF.",
         "Conformité validée par des experts, réduction du risque financier et préparation sereine aux contrôles officiels."
-      );
-    }
-    if (answers["q6.7"] === "Contrats éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire") {
-      addVuln(
-        "q6.7",
-        "Contrats et avenants non centralisés",
-        4,
-        "Contrats de travail éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire.",
-        "Risque de requalification juridique en CDI de plein droit, de litiges prud'homaux et de défaut de suivi des clauses sensibles.",
-        "Centralisation sécurisée dans un espace RH dédié, mise en conformité des modèles et sécurisation juridique complète."
       );
     }
 
@@ -230,6 +262,26 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         "Utilisation de modèles modifiables interdits par la loi anti-fraude à la TVA.",
         "Risque de non-conformité aux exigences de facturation et de retards de règlements.",
         "Raccordement direct aux futurs flux de facturation obligatoire e-invoicing et automatisation de la facturation."
+      );
+    }
+    if (answers["q5.2"] === "Aucune action menée, nous ne savons pas comment nous préparer à la réforme") {
+      addVuln(
+        "q5.2",
+        "Retard sur le choix de plateforme",
+        5,
+        "Aucune préparation à l'obligation réglementaire de raccordement PPF/PDP.",
+        "Risque d'incapacité d'émission/réception des factures dès 2026 et de blocage des règlements.",
+        "Choix technologique anticipé sécurisant les flux de facturation futurs."
+      );
+    }
+    if (answers["q5.3"] === "Factures reçues par divers canaux (courrier, mails), saisie et classement comptable 100% manuels") {
+      addVuln(
+        "q5.3",
+        "Traitement manuel des factures",
+        5,
+        "Saisie et classement comptable des factures fournisseurs 100% manuels.",
+        "Risque d'erreur d'intégration et de retards de traitement des factures fournisseurs.",
+        "Automatisation de l'intégration et archivage électronique à valeur probante."
       );
     }
 
@@ -402,7 +454,7 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
         </div>
 
         {/* Cover Footer & Metadata */}
-        <div style={{ borderTop: "1px solid #1e293b", paddingTop: "35px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "20px" }}>
+        <div style={{ borderTop: "1px solid #1e293b", paddingTop: "25px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "20px", alignItems: "center" }}>
           <div>
             <span style={{ fontSize: "9px", color: "#94a3b8", textTransform: "uppercase", display: "block" }}>Entreprise</span>
             <span style={{ fontSize: "13px", fontWeight: "bold", color: "#ffffff" }}>{contact.companyName || "Non spécifié"}</span>
@@ -414,6 +466,9 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
           <div>
             <span style={{ fontSize: "9px", color: "#94a3b8", textTransform: "uppercase", display: "block" }}>Date d'évaluation</span>
             <span style={{ fontSize: "13px", fontWeight: "bold", color: "#ffffff" }}>{new Date(data.generatedAt || Date.now()).toLocaleDateString("fr-FR")}</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "-10px" }}>
+            <ValidationStamp />
           </div>
         </div>
       </div>
@@ -923,6 +978,18 @@ export default function PremiumDiagnosticPdf({ data, id = "premium-pdf-container
               Les résultats de ce diagnostic permettent d’identifier les actions prioritaires pour renforcer la conformité, sécuriser la gestion et améliorer la performance globale de votre entreprise.
               Les équipes MAJHA restent à votre disposition pour vous accompagner dans la mise en œuvre de ces recommandations."
             </p>
+          </div>
+
+          {/* Signature and Stamp Block */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "2px solid #e2e8f0", paddingTop: "15px", marginTop: "10px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+              <span style={{ fontSize: "9px", color: "#94a3b8", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.5px" }}>Rapport rédigé et validé par :</span>
+              <HandwrittenSignature />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <span style={{ fontSize: "9px", color: "#94a3b8", textTransform: "uppercase", fontWeight: "bold", letterSpacing: "0.5px", marginBottom: "5px" }}>Cachet officiel du cabinet :</span>
+              <ValidationStamp />
+            </div>
           </div>
 
           {/* Contact Details Grid (Optimized Coordinate Visibility) */}

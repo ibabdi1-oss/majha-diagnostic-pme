@@ -167,6 +167,10 @@ export default function ProfileForm() {
 
         {/* Title */}
         <div className="text-center md:text-left mb-8">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 border border-teal-200 text-[10px] font-bold text-teal-700 tracking-wide mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 animate-pulse" />
+            Temps estimé : 3 à 5 minutes
+          </div>
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Configurez votre diagnostic</h1>
           <p className="text-slate-500 text-sm md:text-base font-light mt-2">
             Ces informations permettent d'adapter les questions de conformité sociale (CSE, DUERP) et de calculer les ratios financiers (matelas de trésorerie disponible) spécifiques à votre PME.

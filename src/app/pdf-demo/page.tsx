@@ -39,20 +39,23 @@ const mockLow = {
   generatedAt: new Date().toISOString(),
   answers: {
     "q1.1": "Pas de tenue régulière ou saisie très en retard (fort risque d'erreurs)",
-    "q1.5": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
+    "q1.2": "Tableur (Excel / Google Sheets) ou sur papier libre pour la comptabilité",
+    "q1.4": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
     "q2.1": 30,
-    "q2.5": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
-    "q3.4": 90,
+    "q2.2": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
+    "q2.4": "Pas d'ECF annuel ni d'aides fiscales (CIR, CII, mécénat) par méconnaissance",
+    "q3.1": 0.5,
     "q3.2": "Pas de prévisions, nous pilotons à vue en regardant le solde bancaire",
-    "q4.3": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
-    "q4.7": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
+    "q3.3": 90,
+    "q4.2": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
+    "q4.3": "Plus de 11 salariés et aucune élection organisée (conformité CSE à sécuriser)",
+    "q4.4": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
     "q6.1": "Bulletins saisis en interne sur un tableur (Excel) ou outil non spécialisé (fort risque d'erreur)",
     "q6.2": "Retards fréquents ou erreurs de dépôt entraînant des relances ou des pénalités URSSAF",
-    "q6.3": "Aucune veille formalisée, nous appliquons des règles historiques sans mise à jour des grilles de salaire",
-    "q6.4": "Suivi informel sur des calendriers papier ou par emails (risque d'erreurs ou de contestation)",
-    "q6.6": "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)",
-    "q6.7": "Contrats éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire",
-    "q5.1": "Saisie libre sur Word, Excel ou sur papier libre"
+    "q6.4": "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)",
+    "q5.1": "Saisie libre sur Word, Excel ou sur papier libre",
+    "q5.2": "Aucune action menée, nous ne savons pas comment nous préparer à la réforme",
+    "q5.3": "Factures reçues par divers canaux (courrier, mails), saisie et classement comptable 100% manuels"
   }
 };
 
@@ -90,17 +93,23 @@ const mockMedium = {
   generatedAt: new Date().toISOString(),
   answers: {
     "q1.1": "Saisie en interne sans supervision régulière d'un expert-comptable diplômé",
-    "q1.5": "Oui, mais il n'a jamais été testé par un outil de vérification de conformité de la DGFIP",
+    "q1.2": "Logiciel comptable local avec rapprochement mensuel manuel et numérisation simple",
+    "q1.4": "Oui, mais il n'a jamais été testé par un outil de vérification de conformité de la DGFIP",
     "q2.1": 10,
-    "q2.5": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
-    "q3.4": 45,
-    "q3.2": "Pas de prévisions, nous pilotons à vue en regardant le solde bancaire",
-    "q4.7": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
+    "q2.2": "Processus de facturation documenté de manière très simple ou non mis à jour",
+    "q2.4": "Utilisation d'aides fiscales (CIR/CII) sans rescrit ni examen de conformité régulier",
+    "q3.1": 1.5,
+    "q3.2": "Plan de trésorerie réalisé sur un tableur Excel mis à jour irrégulièrement",
+    "q3.3": 45,
+    "q4.2": "Mutuelle en place mais sans prévoyance complémentaire obligatoire pour les cadres",
+    "q4.3": "Moins de 11 salariés (non soumis) ou PV de carence en règle si aucune candidature",
+    "q4.4": "DUERP existant mais obsolète, ou retards significatifs pour les visites médicales VIP",
     "q6.1": "Logiciel de paie en interne géré par un collaborateur non expert (veille conventionnelle fragile)",
-    "q6.2": "Retards fréquents ou erreurs de dépôt entraînant des relances ou des pénalités URSSAF",
-    "q6.3": "Aucune veille formalisée, nous appliquons des règles historiques sans mise à jour des grilles de salaire",
-    "q6.7": "Contrats éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire",
-    "q5.1": "Saisie libre sur Word, Excel ou sur papier libre"
+    "q6.2": "DSN déposées dans les délais sans contrôle de cohérence, suivi simple de la masse salariale nette",
+    "q6.4": "Aucun contrôle récent, mais nous réalisons des vérifications internes basiques sur nos taux",
+    "q5.1": "Logiciel de facturation classique générant des fichiers PDF simples",
+    "q5.2": "Nous connaissons la réforme, mais le choix entre le PPF et une PDP partenaire n'est pas encore fait",
+    "q5.3": "Centralisation sur email unique d'achats, export manuel de fichiers pour la comptabilité"
   }
 };
 
@@ -131,17 +140,23 @@ const mockHigh = {
   generatedAt: new Date().toISOString(),
   answers: {
     "q1.1": "Tenue ou révision régulière confiée à un cabinet inscrit à l'Ordre des Experts-Comptables",
-    "q1.5": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
+    "q1.2": "Outil cloud moderne (ex: Pennylane, Dext) avec synchro bancaire quotidienne et archivage GED valeur probante",
+    "q1.4": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
     "q2.1": 0,
-    "q2.5": "Oui, documentation complète et à jour détaillant nos contrôles internes de facturation",
-    "q3.4": 15,
+    "q2.2": "Oui, documentation complète et à jour détaillant nos contrôles internes de facturation",
+    "q2.4": "Examen de Conformité Fiscale (ECF) annuel validé et aides sécurisées par rescrit",
+    "q3.1": 3,
     "q3.2": "Prévisions glissantes à 3/6 mois alimentées automatiquement par un outil de flux (ex: Agicap)",
-    "q4.7": "DUERP rédigé, mis à jour annuellement et communiqué à l'ensemble de nos salariés",
+    "q3.3": 15,
+    "q4.2": "Mutuelle d'entreprise ANI obligatoire active pour tous et prévoyance cadre / non-cadre conforme",
+    "q4.3": "CSE en place, réunions et procès-verbaux rédigés conformément à la législation",
+    "q4.4": "DUERP à jour communiqué aux salariés et visites médicales obligatoires à jour",
     "q6.1": "Bulletins de paie entièrement externalisés et supervisés par un prestataire expert (cabinet d'expertise comptable ou spécialiste de la paie)",
-    "q6.2": "DSN déposées systématiquement à temps avec contrôle de cohérence intégré avant transmission",
-    "q6.3": "Veille active et automatique avec application immédiate des avenants (salaires minimums, primes, congés exceptionnels)",
-    "q6.7": "Dossier RH centralisé et sécurisé (GED) avec des contrats et avenants systématiquement rédigés par un expert",
-    "q5.1": "Logiciel certifié générant le format réglementaire mixte Factur-X (PDF + XML structuré) ou structuré"
+    "q6.2": "DSN déposées systématiquement à temps avec contrôles de cohérence et suivi du coût chargé complet",
+    "q6.4": "Dernier contrôle sans redressement significatif ou audit de conformité sociale réalisé il y a moins de 2 ans",
+    "q5.1": "Logiciel certifié générant le format réglementaire mixte Factur-X (PDF + XML structuré) ou structuré",
+    "q5.2": "Notre plateforme de transmission (PPF / PDP) est validée et nos équipes se forment aux flux",
+    "q5.3": "Outil de dématérialisation avec OCR/IA, synchro API avec compta et archivage GED valeur probante"
   }
 };
 

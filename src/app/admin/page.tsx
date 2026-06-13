@@ -205,14 +205,13 @@ const INITIAL_LEADS: Lead[] = [
     pillarScores: { comptabilite: 40, fiscalite: 50, tresorerie: 30, rh: 45, paie: 50, facturation: 60 },
     answers: {
       "q1.1": "Saisie en interne sans supervision régulière d'un expert-comptable diplômé",
-      "q1.5": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
+      "q1.4": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
       "q2.1": 20,
-      "q2.5": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
+      "q2.2": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
       "q3.1": 0.8,
-      "q3.4": 75,
-      "q4.2": "Production sur Excel ou saisie manuelle de la DSN avec des retards réguliers",
-      "q4.3": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
-      "q4.7": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
+      "q3.3": 75,
+      "q4.2": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
+      "q4.4": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
       "q5.1": "Saisie libre sur Word, Excel ou sur papier libre",
       "q5.2": "Aucune action menée, nous ne savons pas comment nous préparer à la réforme",
       "q6.1": "Bulletins saisis en interne sur un tableur (Excel) ou outil non spécialisé (fort risque d'erreur)",
@@ -239,14 +238,13 @@ const INITIAL_LEADS: Lead[] = [
     pillarScores: { comptabilite: 85, fiscalite: 70, tresorerie: 65, rh: 60, paie: 75, facturation: 80 },
     answers: {
       "q1.1": "Tenue ou révision régulière confiée à un cabinet inscrit à l'Ordre des Experts-Comptables",
-      "q1.5": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
+      "q1.4": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
       "q2.1": 0,
-      "q2.5": "Processus de facturation documenté de manière très simple ou non mis à jour",
+      "q2.2": "Processus de facturation documenté de manière très simple ou non mis à jour",
       "q3.1": 2.5,
-      "q3.4": 45,
-      "q4.2": "Production confiée à un pôle social d'expert-comptable ou via un outil de paie SaaS de référence",
-      "q4.3": "Mutuelle d'entreprise ANI obligatoire active pour tous et prévoyance cadre / non-cadre conforme",
-      "q4.7": "DUERP existant mais obsolète (non mis à jour depuis plus d'un an ou sans plan d'action)",
+      "q3.3": 45,
+      "q4.2": "Mutuelle d'entreprise ANI obligatoire active pour tous et prévoyance cadre / non-cadre conforme",
+      "q4.4": "DUERP existant mais obsolète (non mis à jour depuis plus d'un an ou sans plan d'action)",
       "q5.1": "Logiciel de facturation classique générant des fichiers PDF simples",
       "q6.1": "Bulletins de paie entièrement externalisés et supervisés par un prestataire expert (cabinet d'expertise comptable ou spécialiste de la paie)",
       "q6.2": "DSN déposées systématiquement à temps avec contrôle de cohérence intégré avant transmission"
@@ -271,14 +269,13 @@ const INITIAL_LEADS: Lead[] = [
     pillarScores: { comptabilite: 60, fiscalite: 65, tresorerie: 40, rh: 50, paie: 45, facturation: 65 },
     answers: {
       "q1.1": "Saisie en interne sans supervision régulière d'un expert-comptable diplômé",
-      "q1.5": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
+      "q1.4": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
       "q2.1": 0,
-      "q2.5": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
+      "q2.2": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
       "q3.1": 0.5,
-      "q3.4": 55,
-      "q4.2": "Production confiée à un pôle social d'expert-comptable ou via un outil de paie SaaS de référence",
-      "q4.3": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
-      "q4.7": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
+      "q3.3": 55,
+      "q4.2": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
+      "q4.4": "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)",
       "q5.1": "Logiciel de facturation classique générant des fichiers PDF simples",
       "q6.1": "Bulletins de paie entièrement externalisés et supervisés par un prestataire expert (cabinet d'expertise comptable ou spécialiste de la paie)",
       "q6.2": "DSN déposées systématiquement à temps avec contrôle de cohérence intégré avant transmission"
@@ -304,14 +301,13 @@ const INITIAL_LEADS: Lead[] = [
     pillarScores: { comptabilite: 95, fiscalite: 100, tresorerie: 90, rh: 95, paie: 95, facturation: 100 },
     answers: {
       "q1.1": "Tenue ou révision régulière confiée à un cabinet inscrit à l'Ordre des Experts-Comptables",
-      "q1.5": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
+      "q1.4": "Oui, notre outil le génère et sa conformité technique est régulièrement auditée",
       "q2.1": 0,
-      "q2.5": "Oui, documentation complète et à jour détaillant nos contrôles internes de facturation",
+      "q2.2": "Oui, documentation complète et à jour détaillant nos contrôles internes de facturation",
       "q3.1": 4.0,
-      "q3.4": 25,
-      "q4.2": "Production confiée à un pôle social d'expert-comptable ou via un outil de paie SaaS de référence",
-      "q4.3": "Mutuelle d'entreprise ANI obligatoire active pour tous et prévoyance cadre / non-cadre conforme",
-      "q4.7": "DUERP rédigé, mis à jour annuellement et communiqué à l'ensemble de nos salariés",
+      "q3.3": 25,
+      "q4.2": "Mutuelle d'entreprise ANI obligatoire active pour tous et prévoyance cadre / non-cadre conforme",
+      "q4.4": "DUERP rédigé, mis à jour annuellement et communiqué à l'ensemble de nos salariés",
       "q5.1": "Logiciel certifié générant le format réglementaire mixte Factur-X (PDF + XML structuré) ou structuré",
       "q6.1": "Bulletins de paie entièrement externalisés et supervisés par un prestataire expert (cabinet d'expertise comptable ou spécialiste de la paie)",
       "q6.2": "DSN déposées systématiquement à temps avec contrôle de cohérence intégré avant transmission"
@@ -336,14 +332,13 @@ const INITIAL_LEADS: Lead[] = [
     pillarScores: { comptabilite: 30, fiscalite: 40, tresorerie: 50, rh: 40, paie: 35, facturation: 50 },
     answers: {
       "q1.1": "Pas de tenue régulière ou saisie très en retard (fort risque d'erreurs)",
-      "q1.5": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
+      "q1.4": "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)",
       "q2.1": 12,
-      "q2.5": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
+      "q2.2": "Non, nous n'avons aucun document de ce type (point de vigilance TVA)",
       "q3.1": 1.2,
-      "q3.4": 50,
-      "q4.2": "Production sur Excel ou saisie manuelle de la DSN avec des retards réguliers",
-      "q4.3": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
-      "q4.7": "DUERP existant mais obsolète (non mis à jour depuis plus d'un an ou sans plan d'action)",
+      "q3.3": 50,
+      "q4.2": "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)",
+      "q4.4": "DUERP existant mais obsolète (non mis à jour depuis plus d'un an ou sans plan d'action)",
       "q5.1": "Saisie libre sur Word, Excel ou sur papier libre",
       "q6.1": "Bulletins saisis en interne sur un tableur (Excel) ou outil non spécialisé (fort risque d'erreur)",
       "q6.2": "Retards fréquents ou erreurs de dépôt entraînant des relances ou des pénalités URSSAF"
@@ -511,7 +506,7 @@ export default function AdminPage() {
       list.push("Expertise comptable");
     }
     // DAF
-    if (lead.pillarScores.tresorerie < 70 || Number(lead.answers["q3.1"] || 0) < 1.5 || Number(lead.answers["q3.4"] || 0) > 45) {
+    if (lead.pillarScores.tresorerie < 70 || Number(lead.answers["q3.1"] || 0) < 1.5 || Number(lead.answers["q3.3"] || 0) > 45) {
       list.push("Conseil financier & DAF externalisé");
     }
     // Paie & Obligations Sociales
@@ -519,7 +514,7 @@ export default function AdminPage() {
       list.push("Gestion de la paie & accompagnement social");
     }
     // RH
-    if (lead.pillarScores.rh < 70 || lead.answers["q4.3"]?.toString().includes("Pas de mutuelle") || lead.answers["q4.7"]?.toString().includes("Non, aucun document")) {
+    if (lead.pillarScores.rh < 70 || lead.answers["q4.2"]?.toString().includes("Pas de mutuelle") || lead.answers["q4.4"]?.toString().includes("Non, aucun document")) {
       list.push("RH & audit social");
     }
     // Facturation

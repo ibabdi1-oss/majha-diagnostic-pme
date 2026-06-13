@@ -160,9 +160,9 @@ export default function ResultsDashboard() {
         "urgent"
       );
     }
-    if (answers["q1.5"] === "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)") {
+    if (answers["q1.4"] === "Non, ou nous ne savons pas ce qu'est le FEC (conformité comptable à sécuriser)") {
       addRec(
-        "q1.5", 
+        "q1.4", 
         "Non-conformité du FEC", 
         "Incapacité à présenter le Fichier des Écritures Comptables lors d'une vérification.", 
         "Point de vigilance : Risque de rejet de conformité technique de votre comptabilité et d'anomalies fiscales.",
@@ -179,18 +179,18 @@ export default function ResultsDashboard() {
         "q2.1", 
         "Retards de déclarations de TVA", 
         "Décalages répétés de transmission du formulaire CA3 à l'administration fiscale.", 
-        "Application d'une majoration forfaitaire automatique de 10% des sommes dues et intérêts de retard mensuels.",
+        "Application d'une majoration forfaitaire automatique de 10% à 40% des sommes dues, intérêts de retard mensuels et risque accru de contrôle fiscal.",
         "Préservation de votre trésorerie opérationnelle et maintien de relations de confiance avec la DGFIP.",
         "Expertise Comptable", 
         "urgent"
       );
     }
-    if (answers["q2.5"] === "Non, nous n'avons aucun document de ce type (point de vigilance TVA)") {
+    if (answers["q2.2"] === "Non, nous n'avons aucun document de ce type (point de vigilance TVA)") {
       addRec(
-        "q2.5", 
+        "q2.2", 
         "Absence de Piste d'Audit Fiable (PAF)", 
         "Défaut de formalisation écrite des contrôles internes justifiant la validité de vos factures.", 
-        "Point de vigilance : Risque de contestation de la déduction de TVA sur vos factures fournisseurs.",
+        "Risque à anticiper : Risque de rejet de déductibilité de la TVA sur l'ensemble de vos factures d'achat et pénalités de 10% à 40% (Article 289 du CGI).",
         "Sécurisation du droit à déduction de votre TVA et conformité stricte aux exigences de l'administration.",
         "Expertise Comptable", 
         "urgent"
@@ -198,10 +198,10 @@ export default function ResultsDashboard() {
     }
 
     // Trésorerie Warnings
-    const dsoValue = Number(answers["q3.4"] || 0);
+    const dsoValue = Number(answers["q3.3"] || 0);
     if (dsoValue > 60) {
       addRec(
-        "q3.4", 
+        "q3.3", 
         "Délai de paiement clients excessif (DSO)", 
         "Blocage d'une part importante de votre chiffre d'affaires sous forme de créances clients non recouvrées.", 
         "Conformité à renforcer : Non-respect des règles LME de délais de paiement et impact sur votre trésorerie opérationnelle.",
@@ -223,9 +223,9 @@ export default function ResultsDashboard() {
     }
 
     // RH Warnings
-    if (answers["q4.3"] === "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)") {
+    if (answers["q4.2"] === "Pas de mutuelle collective en place (situation de non-conformité ANI à régulariser)") {
       addRec(
-        "q4.3", 
+        "q4.2", 
         "Défaut de mutuelle ANI obligatoire", 
         "Non-respect de l'obligation de proposer une complémentaire santé collective financée à 50% minimum.", 
         "Conformité à renforcer : Risque de contentieux social et d'obligation de régularisation rétroactive.",
@@ -234,12 +234,23 @@ export default function ResultsDashboard() {
         "urgent"
       );
     }
-    if (answers["q4.7"] === "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)") {
+    if (answers["q4.3"] === "Plus de 11 salariés et aucune élection organisée (conformité CSE à sécuriser)") {
       addRec(
-        "q4.7", 
+        "q4.3", 
+        "Absence d'élections du CSE", 
+        "Entreprise de plus de 11 salariés sans Comité Social et Économique (seuil dépassé depuis 12 mois).", 
+        "Risque à anticiper : Délit d’entrave passible d’un an d’emprisonnement et 7 500 € d’amende.",
+        "Organisation immédiate des élections professionnelles ou rédaction d'un PV de carence en cas de défaut de candidats.",
+        "RH & audit social", 
+        "urgent"
+      );
+    }
+    if (answers["q4.4"] === "Non, aucun document rédigé (obligation de sécurité employeur à couvrir d'urgence)") {
+      addRec(
+        "q4.4", 
         "Absence de DUERP rédigé", 
         "Absence de recensement écrit des risques professionnels pour la santé et la sécurité des travailleurs.", 
-        "Risque à anticiper : Risque pour la sécurité des équipes et absence de couverture légale pour la responsabilité de la direction.",
+        "Risque à anticiper : Risque d’amende pénale jusqu’à 3 750 € et de responsabilité civile/pénale personnelle du dirigeant en cas d’accident.",
         "Sécurisation de la responsabilité de la direction et structuration d'un plan de prévention des risques au travail.",
         "RH & audit social", 
         "urgent"
@@ -269,46 +280,13 @@ export default function ResultsDashboard() {
         "urgent"
       );
     }
-    if (answers["q6.3"] === "Aucune veille formalisée, nous appliquons des règles historiques sans mise à jour des grilles de salaire") {
-      addRec(
-        "q6.3", 
-        "Absence de veille conventionnelle", 
-        "Défaut d'application des grilles de salaire et des avenants de votre Convention Collective Nationale.", 
-        "Risque de contentieux prud'homal individuel ou collectif pour non-respect des minima salariaux conventionnels.",
-        "Ajustement automatique des salaires aux minima conventionnels et conformité sociale totale.",
-        "Gestion de la paie & accompagnement social", 
-        "urgent"
-      );
-    }
-    if (answers["q6.4"] === "Suivi informel sur des calendriers papier ou par emails (risque d'erreurs ou de contestation)") {
+    if (answers["q6.4"] === "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)") {
       addRec(
         "q6.4", 
-        "Gestion des absences imprécise", 
-        "Suivi des congés payés, RTT et arrêts maladies géré manuellement ou de façon éparpillée.", 
-        "Erreurs de calcul du solde lors des départs de salariés, contestations prud'homales et désorganisation interne.",
-        "Suivi transparent en temps réel via un espace collaborateur et planification opérationnelle simplifiée.",
-        "Gestion de la paie & accompagnement social", 
-        "important"
-      );
-    }
-    if (answers["q6.6"] === "Contrôle URSSAF récent ayant donné lieu à un redressement ou jamais audité (risque de conformité latent)") {
-      addRec(
-        "q6.6", 
         "Risque URSSAF", 
         "Absence d'audit social préventif ou contrôle récent ayant relevé des anomalies.", 
         "Risque élevé de redressement financier sur les cotisations sociales lors du prochain contrôle URSSAF.",
         "Conformité validée par des experts, réduction du risque financier et préparation sereine aux contrôles officiels.",
-        "Gestion de la paie & accompagnement social", 
-        "important"
-      );
-    }
-    if (answers["q6.7"] === "Contrats éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire") {
-      addRec(
-        "q6.7", 
-        "Contrats et avenants non centralisés", 
-        "Contrats de travail éparpillés, modèles obsolètes ou avenants non signés lors des changements de poste/salaire.", 
-        "Risque de requalification juridique en CDI de plein droit, de litiges prud'homaux et de défaut de suivi des clauses sensibles.",
-        "Centralisation sécurisée dans un espace RH dédié, mise en conformité des modèles et sécurisation juridique complète.",
         "Gestion de la paie & accompagnement social", 
         "important"
       );

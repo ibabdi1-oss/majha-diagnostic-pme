@@ -44,7 +44,7 @@ export const services: ServiceOffering[] = [
     iconName: "TrendingUp",
     shouldRecommend: (scores, answers) => {
       // Recommandé si le score Trésorerie est faible ou si la trésorerie est < 1 mois ou DSO > 45 jours
-      const dso = Number(answers["q3.4"] || 0);
+      const dso = Number(answers["q3.3"] || 0);
       const lowCash = Number(answers["q3.1"] || 0) < 1; // Trésorerie < 1 mois
       return (scores.tresorerie < 70) || lowCash || (dso > 45);
     }
@@ -72,8 +72,8 @@ export const services: ServiceOffering[] = [
     iconName: "Users",
     shouldRecommend: (scores, answers) => {
       // Recommandé si le score RH est faible ou s'il manque le DUERP ou la mutuelle ANI
-      const noDuerp = answers["q4.7"]?.toString().includes("Non, aucun document") || !answers["q4.7"];
-      const noMutuelle = answers["q4.3"]?.toString().includes("Pas de mutuelle") || !answers["q4.3"];
+      const noDuerp = answers["q4.4"]?.toString().includes("Non, aucun document") || !answers["q4.4"];
+      const noMutuelle = answers["q4.2"]?.toString().includes("Pas de mutuelle") || !answers["q4.2"];
       return (scores.rh < 70) || noDuerp || noMutuelle;
     }
   },

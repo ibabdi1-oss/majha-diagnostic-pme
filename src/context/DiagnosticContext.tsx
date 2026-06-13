@@ -144,12 +144,12 @@ export const DiagnosticProvider = ({ children }: { children: ReactNode }) => {
 
     // Calculate score for each pillar
     const pillarTotals: { [pillarId: number]: { max: number; current: number } } = {
-      0: { max: 16, current: 0 },
-      1: { max: 16, current: 0 },
-      2: { max: 16, current: 0 },
-      3: { max: 16, current: 0 },
-      4: { max: 16, current: 0 },
-      5: { max: 16, current: 0 }
+      0: { max: 6, current: 0 },
+      1: { max: 6, current: 0 },
+      2: { max: 6, current: 0 },
+      3: { max: 6, current: 0 },
+      4: { max: 6, current: 0 },
+      5: { max: 6, current: 0 }
     };
 
     questions.forEach((q) => {
